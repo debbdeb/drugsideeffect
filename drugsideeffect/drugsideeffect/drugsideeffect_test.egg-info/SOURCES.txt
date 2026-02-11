@@ -1,0 +1,16 @@
+MANIFEST.in
+readme.md
+setup.py
+drugsideeffect/__init__.py
+drugsideeffect/processing.py
+drugsideeffect/sideeffect_pipeline.py
+drugsideeffect/visualization.py
+drugsideeffect/models/__init__.py
+drugsideeffect/models/sideeffect_nb.pkl
+drugsideeffect/models/tfidf_vectorizer.pkl
+drugsideeffect_test.egg-info/PKG-INFO
+drugsideeffect_test.egg-info/SOURCES.txt
+drugsideeffect_test.egg-info/dependency_links.txt
+drugsideeffect_test.egg-info/not-zip-safe
+drugsideeffect_test.egg-info/requires.txt
+drugsideeffect_test.egg-info/top_level.txt
