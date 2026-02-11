@@ -23,15 +23,19 @@ tags:
 
 Drugsideeffect-test (v0.1.0) is a Python package (import as 'drugsideeffect') for exploring, categorizing, and visualizing drug side-effect mentions from textual data for research purposes; it is not intended for clinical diagnosis or decision-making. Repository: https://github.com/debbdeb/drugsideeffect. It can be installed via PyPI Test repository for testing: 
 pip install -i https://test.pypi.org/simple/ drugsideeffect-test.
+
 Key dependencies include: pandas >=1.5, numpy >=1.23, matplotlib >=3.6, seaborn >=0.12, plotly >=5.11, nltk >=3.8, textblob >=0.17, and spacy >=3.5. Pretrained models are included in the package (drugsideeffect/models/) [1][2].
-For stable releases, the package will be available on PyPI: pip install drugsideeffect-test. The package provides tools for exploring, categorizing, and visualizing self-reported drug side-effect mentions from social media text for research purposes; it is not intended for clinical diagnosis or decision-making. The software integrates supervised machine learning classification with multi-layered lexicon-based extraction and visualization. It is specifically designed to bridge informal patient-generated content (e.g., tweets) with structured pharmacovigilance-oriented symptom categories. 
+
+For stable releases, the package will be available on PyPI: pip install drugsideeffect-test. The package provides tools for exploring, categorizing, and visualizing self-reported drug side-effect mentions from textual data for research purposes; it is not intended for clinical diagnosis or decision-making. The software integrates supervised machine learning classification with multi-layered lexicon-based extraction and visualization. It is specifically designed to bridge informal patient-generated content (e.g., tweets) with structured pharmacovigilance-oriented symptom categories. 
+
 The system combines:
-1.	A pretrained TF–IDF + Naïve Bayes classifier for filtering side-effect-related posts [3].
+1.	A pretrained TF–IDF + Naive Bayes classifier pre-trained model for filtering side-effect-related text [3].
 2.	A set of curated lexicons for common symptoms, uncommon vaccine-related adverse events, slang / figurative expressions, temporal patterns, and alert keywords.
 3.	A modular visualization layer for sentiment analysis, symptom distribution, temporal trends, engagement metrics, and onset/duration analysis.
-The primary innovation of drugsideeffect-test lies in its lexicon architecture and its tight coupling with visual analytics. Rather than treating lexicons solely as keyword filters, the package operationalizes them as semantic layers that drive multi-dimensional visualizations.
-The full pipeline (Figure 1) can be executed via a single function, sideeffect_pipeline(), which loads data, filters side-effect mentions, processes onset timing, and generates all visual outputs. The GitHub repository link is: https://github.com/debbdeb/drugsideeffect 
+	
+The primary innovation of drugsideeffect-test lies in its lexicon architecture and its coupling with visual analytics. Rather than treating lexicons solely as keyword filters, the package operationalizes them as semantic layers that drive multi-dimensional visualizations.
 
+The full pipeline (Figure 1) can be executed via a single function, sideeffect_pipeline(), which loads data, filters side-effect mentions, processes onset timing, and generates all visual outputs. The GitHub repository link is: https://github.com/debbdeb/drugsideeffect 
 
 
 
@@ -43,7 +47,7 @@ Figure 1. Overview of the Drugsideeffect-test pipeline. The workflow begins with
 
 # Statement of Need
 
-Pharmacovigilance traditionally relies on structured adverse event reporting systems such as VAERS or FAERS [8][9]. However, patient-reported outcomes increasingly emerge in unstructured online environments including social media [13]. These sources contain valuable early signals but present substantial challenges:
+Pharmacovigilance traditionally relies on structured adverse event/side-effect reporting systems such as VAERS or FAERS [8][9]. However, patient-reported outcomes increasingly emerge in unstructured online and other environments including social media [13]. These sources contain valuable early signals but present substantial challenges:
 •	Informal language and slang
 •	Non-standard symptom descriptions
 •	Temporal ambiguity
@@ -51,13 +55,15 @@ Pharmacovigilance traditionally relies on structured adverse event reporting sys
 •	Misinformation amplification
 •	Engagement-driven distortion (likes, retweets)
 •	Metaphor, slang, hyperbole, simile, personification, irony, allusion, understatement, pun, oxymoron, colloquial/idiomatic expressions
-Existing NLP tools often focus either on classification (is this a side-effect post?) or named entity recognition (extract medical terms) [6][7]. Few open-source tools integrate:
+
+Existing NLP tools often focus either on classification (trying to answer questions such as - is this a side-effect post?) or named entity recognition (extract medical terms) [6][7]. Few open-source tools integrate:
 •	Informal-to-clinical lexical mapping
 •	Temporal phrase detection
 •	Sentiment context
 •	Engagement metrics
 •	Visualization of lexicon-derived features
-Drugsideeffect-test addresses this gap by combining machine learning filtering with a layered lexicon-driven visualization framework. The package is particularly useful for:
+
+Drugsideeffect-test aims to addresses this gap by combining machine learning filtering with a layered lexicon-driven visualization framework. The package can be particularly useful for:
 •	Public health researchers
 •	Computational social scientists
 •	Pharmacovigilance analysts
@@ -73,18 +79,19 @@ The system is structured into several components:
 The classification module loads pretrained artifacts included in the package (drugsideeffect/models/):
 •	sideeffect_nb.pkl: Naive Bayes classifier
 •	tfidf_vectorizer.pkl: TF–IDF feature extractor
+
 The classify_sideeffects function takes a DataFrame containing a text column and predicts a binary label indicating likely side-effect mentions.
 •	Requires a text column.
 •	Vectorizes the text.
 •	Predicts a binary label indicating likely side-effect mentions in text for exploratory research only; labels do not confirm medical events.
-•	Filters the dataset to retain only side-effect posts.
-This ML-first filtering reduces noise before lexicon-based extraction is applied.
+•	Filters the dataset to retain only side-effect text.
+This filtering reduces noise before lexicon-based extraction is applied.
 
-2. Lexicon Architecture
+3. Lexicon Architecture
 The lexicon layer is the core conceptual contribution of the package. It consists of five primary lexicon categories:
 A. Known Symptom Lexicon
 
-A curated list of commonly reported side effects, e.g., fever, headache, fatigue, muscle pain, insomnia, and anxiety disorders (representative, not exhaustive).
+A curated list of common side effects (particularly in the context of COVID-19), e.g., fever, headache, fatigue, muscle pain, insomnia, and anxiety disorders (representative, not exhaustive).
 
 This lexicon supports:
 •	Frequency visualization
@@ -93,7 +100,7 @@ This lexicon supports:
 
 B. Uncommon Vaccine Side Effects Lexicon
 
-This lexicon includes severe or rare conditions (representative, not exhaustive):
+This lexicon includes severe or rare conditions, particularly in the context of COVID-19, (representative, not exhaustive):
 •	myocarditis
 •	thrombosis
 •	stroke
@@ -101,7 +108,7 @@ This lexicon includes severe or rare conditions (representative, not exhaustive)
 •	autoimmunity
 •	long covid
 
-The purpose is solely for detecting narrative prevalence in text data, not for clinical validation or assessment of patient risk. These terms are often central to misinformation or safety debates.
+The purpose is solely for detecting narrative prevalence in text data, not for clinical validation or assessment of patient risk. 
 
 Visualizations include:
 •	Top uncommon side-effect frequency
@@ -135,7 +142,7 @@ This supports:
 •	Time-series visualization
 •	Onset pattern extraction
 •	Temporal clustering analysis
-Temporal detection is essential for pharmacovigilance, as adverse events are strongly time-dependent.
+Temporal detection is essential for pharmacovigilance, as side effects are time-dependent.
 
 E. Alert Keyword Lexicon
 Terms indicating urgency or severity:
@@ -201,16 +208,19 @@ The sideeffect_pipeline() function orchestrates the entire workflow:
 •	Process onset timing
 •	Generate all plots
 •	Return filtered DataFrame
-This design ensures reproducibility and usability for non-expert users.
+This design ensures usability for non-expert users.
 
-# Example usage
+# Example Usage
 
 import drugsideeffect as dse
 df_filtered = dse.sideeffect_pipeline("sample_data.csv")
-Design Philosophy
+
+
+# Design Philosophy
+
 The system follows four principles:
-1.	Layered Semantics: ML for filtering, lexicons for interpretability.
-2.	Visualization-Centered Analysis: Every lexicon drives a visual analytic.
+1.	Layered Semantics: ML for text filtering, lexicons for interpretability.
+2.	Visualization-Centered Analysis: Lexicons drives the visual analytic.
 3.	Reproducibility: Pretrained models + deterministic lexicon rules.
 4.	Extensibility: Lexicons are editable Python dictionaries/lists.
 
@@ -230,18 +240,19 @@ The system follows four principles:
 Future directions include:
 •	Transformer-based sentiment models
 •	Multilingual lexicons
-•	UMLS integration
+•	Ontology integration
 •	Network analysis of symptom co-occurrence
 •	Dashboard deployment (Streamlit or Dash)
 
 
 # Conclusion
 
-Drugsideeffect-test provides a lexicon-driven framework for analyzing and visualizing drug side-effect discourse in textual data. By combining supervised classification with structured lexical layers and rich visual analytics, the package supports exploratory pharmacovigilance research and digital epidemiology. The framework enables real-time exploration of patient-reported side-effect narratives, quantifying and visualizing informal expressions (e.g., "drained", "weary"), temporal patterns (e.g., "days ago"), and sentiment dynamics. These capabilities complement traditional pharmacovigilance methods in research contexts. The software is open source and designed for transparency, reproducibility, and extension by the research community.
+Drugsideeffect-test provides a lexicon-driven framework for analyzing and visualizing drug side-effect discourse in textual data. By combining supervised classification with structured lexical layers and visual analytics, the package supports exploratory pharmacovigilance research and digital epidemiology. The framework enables real-time exploration of textually-reported side-effect narratives, quantifying and visualizing informal expressions (e.g., "drained", "weary"), temporal patterns (e.g., "days ago"), and sentiment dynamics. These capabilities complement traditional pharmacovigilance methods in research contexts. The software is open source and designed for transparency, reproducibility, and extension by the research community.
 
 
 # License
 
 Drugsideeffect-test is distributed under the MIT License. 
+
 
 
