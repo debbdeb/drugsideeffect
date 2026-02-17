@@ -24,12 +24,12 @@ tags:
 Drugsideeffect-test (v0.1.0) is a Python package (import as 'drugsideeffect') for exploring, categorizing, and visualizing drug side-effect mentions from textual data for research purposes; it is not intended for clinical diagnosis or decision-making. Repository: https://github.com/debbdeb/drugsideeffect. It can be installed via PyPI Test repository for testing: 
 pip install -i https://test.pypi.org/simple/ drugsideeffect-test.
 
-Key dependencies include: pandas >=1.5, numpy >=1.23, matplotlib >=3.6, seaborn >=0.12, plotly >=5.11, nltk >=3.8, textblob >=0.17, and spacy >=3.5. Pretrained models are included in the package (drugsideeffect/models/) [1][2].
+Key dependencies include: pandas >=1.5, numpy >=1.23, matplotlib >=3.6, seaborn >=0.12, plotly >=5.11, nltk >=3.8, textblob >=0.17, and spacy >=3.5. Pretrained models are included in the package (drugsideeffect/models/) (McKinney 2010; Hunter 2007).
 
-For stable releases, the package will be available on PyPI: pip install drugsideeffect-test. The package provides tools for exploring, categorizing, and visualizing self-reported drug side-effect mentions from textual data for research purposes; it is not intended for clinical diagnosis or decision-making. The software integrates supervised machine learning classification with multi-layered lexicon-based extraction and visualization. It is specifically designed to bridge informal patient-generated content (e.g., tweets) with structured pharmacovigilance-oriented symptom categories. 
+For stable releases, the package will be available on PyPI: pip install drugsideeffect-test. The package provides tools for exploring, categorizing, and visualizing self-reported drug side-effect mentions from textual data for research purposes; it is not intended for clinical diagnosis or decision-making. The software integrates supervised machine learning classification with multi-layered lexicon-based extraction and visualization. It is specifically designed to bridge informal patient-generated content (e.g., tweets and other social media or user generated text) with structured pharmacovigilance-oriented symptom categories. 
 
 The system combines:
-1.	A pretrained TF–IDF + Naive Bayes classifier pre-trained model for filtering side-effect-related text [3].
+1.	The pretrained TF–IDF + Naive Bayes classifier is based on scikit-learn (Pedregosa et al. 2011).
 2.	A set of curated lexicons for common symptoms, uncommon vaccine-related adverse events, slang / figurative expressions, temporal patterns, and alert keywords.
 3.	A modular visualization layer for sentiment analysis, symptom distribution, temporal trends, engagement metrics, and onset/duration analysis.
 	
@@ -47,7 +47,7 @@ Figure 1. Overview of the Drugsideeffect-test pipeline. The workflow begins with
 
 # Statement of Need
 
-Pharmacovigilance traditionally relies on structured adverse event/side-effect reporting systems such as VAERS or FAERS [8][9]. However, patient-reported outcomes increasingly emerge in unstructured online and other environments including social media [13]. These sources contain valuable early signals but present substantial challenges:
+Pharmacovigilance traditionally relies on structured adverse event reporting systems such as VAERS or FAERS (Almadani and Alshammari 2022; Rosenblum et al. 2022). However, patient-reported outcomes increasingly emerge in unstructured online environments, including social media (Ried and Seifert 2026). These sources contain valuable early signals but present substantial challenges:
 •	Informal language and slang
 •	Non-standard symptom descriptions
 •	Temporal ambiguity
@@ -56,7 +56,7 @@ Pharmacovigilance traditionally relies on structured adverse event/side-effect r
 •	Engagement-driven distortion (likes, retweets)
 •	Metaphor, slang, hyperbole, simile, personification, irony, allusion, understatement, pun, oxymoron, colloquial/idiomatic expressions
 
-Existing NLP tools often focus either on classification (trying to answer questions such as - is this a side-effect post?) or named entity recognition (extract medical terms) [6][7]. Few open-source tools integrate:
+Natural language processing (NLP) has been widely applied in medical text analytics, including information extraction from clinical narratives (Suvalov et al. 2023) and mining longitudinal trends in COVID-19 vaccine beliefs on Twitter through lexical embeddings (Chopra et al. 2023). Existing NLP tools often focus either on classification (trying to answer questions such as - is this a side-effect post?) or named entity recognition (extract medical terms) (Ghosh et al. 2019; Harpaz et al. 2014). Few open-source tools integrate:
 •	Informal-to-clinical lexical mapping
 •	Temporal phrase detection
 •	Sentiment context
@@ -129,7 +129,7 @@ This lexicon enables:
 •	Monthly trend analysis of slang usage
 •	Sentiment-stratified slang frequency plots
 
-This component is critical because social media [10][11][12] users rarely use formal clinical terminology.
+This component is critical because social media users rarely use formal clinical terminology (Verma et al. 2023; Walach and Klement 2024; Dong et al. 2025).
 
 D. Temporal Pattern Lexicon
 
@@ -157,14 +157,14 @@ Visualization Framework
 The visualization layer integrates lexicon outputs into interpretable analytics.
 
 Sentiment Distribution
-Using TextBlob polarity scoring [5]:
+Using TextBlob polarity scoring (Loria 2018):
 •	Positive
 •	Neutral
 •	Negative
 This contextualizes symptom mentions within emotional framing.
 
 English Word Proportion
-A linguistic quality control metric using NLTK’s word corpus [4]:
+A linguistic quality control metric using NLTK’s word corpus (Loper and Bird 2002):
 •	Measures proportion of recognized English tokens
 •	Assesses data noise or bot-like behavior
 
@@ -253,6 +253,7 @@ Drugsideeffect-test provides a lexicon-driven framework for analyzing and visual
 # License
 
 Drugsideeffect-test is distributed under the MIT License. 
+
 
 
 
