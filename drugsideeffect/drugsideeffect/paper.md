@@ -56,7 +56,7 @@ Pharmacovigilance traditionally relies on structured adverse event reporting sys
 •	Engagement-driven distortion (likes, retweets)
 •	Metaphor, slang, hyperbole, simile, personification, irony, allusion, understatement, pun, oxymoron, colloquial/idiomatic expressions
 
-Natural language processing (NLP) has been widely applied in medical text analytics, including information extraction from clinical narratives (Suvalov et al. 2023) and mining longitudinal trends in COVID-19 vaccine beliefs on Twitter through lexical embeddings (Chopra et al. 2023). Existing NLP tools often focus either on classification (trying to answer questions such as - is this a side-effect post?) or named entity recognition (extract medical terms) (Ghosh et al. 2019; Harpaz et al. 2014). Few open-source tools integrate:
+Natural language processing (NLP) has been applied in text analytics such as Arabica (Korab and Pomenkova 2024) and TTLocVis (Kant, Weisser, and Safken 2020), including information extraction from clinical narratives (Suvalov et al. 2023) and mining longitudinal trends in COVID-19 vaccine beliefs on Twitter through lexical embeddings (Chopra et al. 2023). Existing NLP tools often focus either on classification (trying to answer questions such as - is this a side-effect post?) or named entity recognition (extract medical terms) (Ghosh et al. 2019; Harpaz et al. 2014). Few open-source tools integrate:
 •	Informal-to-clinical lexical mapping
 •	Temporal phrase detection
 •	Sentiment context
@@ -253,6 +253,7 @@ Drugsideeffect-test provides a lexicon-driven framework for analyzing and visual
 # License
 
 Drugsideeffect-test is distributed under the MIT License. 
+
 
 
 
