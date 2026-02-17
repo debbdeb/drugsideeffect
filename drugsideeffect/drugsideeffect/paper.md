@@ -35,17 +35,10 @@ The system combines:
 	
 The primary innovation of drugsideeffect-test lies in its lexicon architecture and its coupling with visual analytics. Rather than treating lexicons solely as keyword filters, the package operationalizes them as semantic layers that drive multi-dimensional visualizations.
 
-The full pipeline (Figure 1) can be executed via a single function, sideeffect_pipeline(), which loads data, filters side-effect mentions, processes onset timing, and generates all visual outputs. The GitHub repository link is: https://github.com/debbdeb/drugsideeffect 
 
 
 
-
-Figure 1. Overview of the Drugsideeffect-test pipeline. The workflow begins with loading input CSV data, followed by Naive Bayes classification to filter texts mentioning side effects. Filtered texts are then processed using curated lexicons—including known symptoms, uncommon effects, slang, temporal patterns, and alert keywords—for multi-layered extraction. Finally, the extracted information feeds into the visualization module generating sentiment, symptom frequency, temporal trends, and engagement analyses.
-
-
-
-
-# Statement of Need
+# State of the Field
 
 Pharmacovigilance traditionally relies on structured adverse event reporting systems such as VAERS or FAERS (Almadani and Alshammari 2022; Rosenblum et al. 2022). However, patient-reported outcomes increasingly emerge in unstructured online environments, including social media (Ried and Seifert 2026). These sources contain valuable early signals but present substantial challenges:
 •	Informal language and slang
@@ -63,7 +56,10 @@ Natural language processing (NLP) has been applied in text analytics such as Ara
 •	Engagement metrics
 •	Visualization of lexicon-derived features
 
-Drugsideeffect-test aims to addresses this gap by combining machine learning filtering with a layered lexicon-driven visualization framework. The package can be particularly useful for:
+
+# Research Impact
+
+Drugsideeffect-test aims to address this gap by combining machine learning filtering with a layered lexicon-driven visualization framework. The package can be particularly useful for:
 •	Public health researchers
 •	Computational social scientists
 •	Pharmacovigilance analysts
@@ -71,7 +67,14 @@ Drugsideeffect-test aims to addresses this gap by combining machine learning fil
 •	NLP researchers studying health misinformation
 
 
-# Implementation
+
+# Software Design and Implementation
+
+The full pipeline (Figure 1) can be executed via a single function, sideeffect_pipeline(), which loads data, filters side-effect mentions, processes onset timing, and generates all visual outputs. The GitHub repository link is: https://github.com/debbdeb/drugsideeffect 
+
+
+
+Figure 1. Overview of the Drugsideeffect-test pipeline. The workflow begins with loading input CSV data, followed by Naive Bayes classification to filter texts mentioning side effects. Filtered texts are then processed using curated lexicons—including known symptoms, uncommon effects, slang, temporal patterns, and alert keywords—for multi-layered extraction. Finally, the extracted information feeds into the visualization module generating sentiment, symptom frequency, temporal trends, and engagement analyses.
 
 The system is structured into several components:
 
@@ -87,7 +90,7 @@ The classify_sideeffects function takes a DataFrame containing a text column and
 •	Filters the dataset to retain only side-effect text.
 This filtering reduces noise before lexicon-based extraction is applied.
 
-3. Lexicon Architecture
+2. Lexicon Architecture
 The lexicon layer is the core conceptual contribution of the package. It consists of five primary lexicon categories:
 A. Known Symptom Lexicon
 
@@ -255,6 +258,9 @@ Drugsideeffect-test provides a lexicon-driven framework for analyzing and visual
 Drugsideeffect-test is distributed under the MIT License. 
 
 
+# AI Usage Disclosure
+
+During the preparation of this manuscript, the author used Google Search to assist with language improvement and readability. The author has reviewed the output and take full responsibility for the content of this publication.
 
 
 
