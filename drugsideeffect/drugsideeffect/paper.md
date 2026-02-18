@@ -155,9 +155,9 @@ Terms indicating urgency or severity:
 
 This lexicon captures emotional escalation or perceived severity.
 
-Visualization Framework
+# Visualization Framework
 
-The visualization layer integrates lexicon outputs into interpretable analytics.
+The visualization layer integrates lexicon outputs into interpretable analytics. An example of the visualizations that can be generated using this Python package is presented in Figure 2.
 
 Sentiment Distribution
 Using TextBlob polarity scoring (Loria 2018):
@@ -202,6 +202,8 @@ plot_onset_times() visualizes:
 •	Distribution of symptom onset (in hours)
 •	Duration of symptoms
 This component bridges textual temporal expressions with quantitative modeling.
+
+
 
 Pipeline Integration
 The sideeffect_pipeline() function orchestrates the entire workflow:
@@ -261,6 +263,7 @@ Drugsideeffect-test is distributed under the MIT License.
 # AI Usage Disclosure
 
 During the preparation of this manuscript, the author used Google Search to assist with language improvement and readability. The author has reviewed the output and take full responsibility for the content of this publication.
+
 
 
 
