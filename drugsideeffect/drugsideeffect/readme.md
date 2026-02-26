@@ -98,6 +98,16 @@ print("All plots generated successfully!")
 
 
 
+## Maintenance and Contributions
+This software was developed as a research-oriented tool to support exploratory analysis in pharmacovigilance.
+
+At this stage, the repository is maintained by the author. The project is not actively seeking external contributions, and a formal test suite and continuous integration workflow are not currently implemented.
+
+The package is provided for research and educational purposes. Users are encouraged to validate outputs independently when applying the software in their own studies.
+
+
+
+
 
 # License 
 MIT License
