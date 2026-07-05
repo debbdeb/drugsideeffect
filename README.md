@@ -25,3 +25,6 @@ Always consult a qualified healthcare professional for medical concerns.
 
 ```bash
 pip install drugsideeffect
+
+
+pypi repository link https://pypi.org/project/drugsideeffect/
