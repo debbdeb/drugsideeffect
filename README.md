@@ -25,3 +25,6 @@ pip install drugsideeffect
 
 
 pypi repository link https://pypi.org/project/drugsideeffect/
+
+Note: The code is provided for exploratory purposes; it is not fully optimized and generates basic visualizations.
+
