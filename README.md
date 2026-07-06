@@ -14,10 +14,7 @@ It provides an end-to-end NLP pipeline for:
 
 ## Disclaimer
 
-This package is intended strictly for **educational and research purposes only**.  
-It does **not provide medical advice, diagnosis, or treatment**.  
-Do not use it as a substitute for professional healthcare guidance.  
-Always consult a qualified healthcare professional for medical concerns.
+DrugSideEffect is intended solely for educational and research purposes. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Results produced by this software should not be used for clinical decision-making. Always consult a qualified healthcare professional for medical concerns.
 
 ---
 
