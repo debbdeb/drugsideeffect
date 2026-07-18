@@ -1,6 +1,6 @@
 # DrugSideEffect
 
-**DrugSideEffect** is a Python package for exploratory pharmacovigilance that extracts, analyzes, and visualizes potential drug side-effect signals from unstructured text such as social media posts, surveys, and patient reports.
+**DrugSideEffect** is a Python package for exploratory pharmacovigilance and behavioural analytics that extracts, analyzes, and visualizes potential drug side-effect signals from unstructured text such as social media posts, surveys, and patient reports.
 
 It provides an end-to-end NLP pipeline for:
 - Text preprocessing and cleaning  
